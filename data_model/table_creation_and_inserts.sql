@@ -1,4 +1,4 @@
-DROP IF NOT EXISTS DATABASE movie_db;
+DROP DATABASE IF EXISTS movie_db;
 CREATE DATABASE movie_db;
 
 CREATE TABLE movie_db.publication (name VARCHAR(255) PRIMARY KEY, avatar VARCHAR(21));
