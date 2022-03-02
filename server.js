@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
 })
 connection.connect()
 function getMovies(callback) {    
-        connection.query("SELECT * FROM movie_db.movies",
+        connection.query("SELECT * FROM movie_db.moviereview;",
             function (err, rows) {
                 callback(err, rows); 
             }
