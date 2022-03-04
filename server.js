@@ -4,6 +4,7 @@ var app = express();
 var mysql = require("mysql");
 var connection = mysql.createConnection({
   host     : process.env.DB_HOST || 'mysql-test.cxrpknmq0hfi.us-west-2.rds.amazonaws.com',
+  PORT     : '3306',
   user     : process.env.DB_USER || 'applicationuser',
   password : process.env.DB_PASS || 'applicationuser',
   database : process.env.DB_NAME || 'movie_db'
