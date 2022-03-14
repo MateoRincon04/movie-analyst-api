@@ -1,13 +1,13 @@
-DROP USER IF EXISTS 'applicationuser';
-CREATE USER 'applicationuser' IDENTIFIED BY 'applicationuser';
+-- DROP USER IF EXISTS 'applicationuser';
+CREATE USER IF NOT EXISTS 'applicationuser' IDENTIFIED BY 'applicationuser';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'applicationuser' WITH GRANT OPTION;
 
-DROP DATABASE IF EXISTS movie_db;
-CREATE DATABASE movie_db;
+-- DROP DATABASE IF EXISTS movie_db;
+CREATE DATABASE IF NOT EXISTS movie_db;
 
-CREATE TABLE movie_db.publication (name VARCHAR(255) PRIMARY KEY, avatar VARCHAR(21));
-CREATE TABLE movie_db.reviewer (name VARCHAR(255) PRIMARY KEY, avatar VARCHAR(255), publication VARCHAR(255), FOREIGN KEY (publication) REFERENCES publication(name) ON DELETE CASCADE);
-CREATE TABLE movie_db.moviereview (title VARCHAR(255) PRIMARY KEY, `release` VARCHAR(255), score INTEGER, reviewer VARCHAR(255), FOREIGN KEY (reviewer) REFERENCES reviewer(name) ON DELETE CASCADE);
+CREATE TABLE IF NOT EXISTS movie_db.publication (name VARCHAR(255) PRIMARY KEY, avatar VARCHAR(21));
+CREATE TABLE IF NOT EXISTS movie_db.reviewer (name VARCHAR(255) PRIMARY KEY, avatar VARCHAR(255), publication VARCHAR(255), FOREIGN KEY (publication) REFERENCES publication(name) ON DELETE CASCADE);
+CREATE TABLE IF NOT EXISTS movie_db.moviereview (title VARCHAR(255) PRIMARY KEY, `release` VARCHAR(255), score INTEGER, reviewer VARCHAR(255), FOREIGN KEY (reviewer) REFERENCES reviewer(name) ON DELETE CASCADE);
 
 INSERT INTO movie_db.publication (name, avatar) VALUES ('The Daily Reviewer', 'glyphicon-eye-open');
 INSERT INTO movie_db.publication (name, avatar) VALUES ('International Movie Critic', 'glyphicon-fire');
